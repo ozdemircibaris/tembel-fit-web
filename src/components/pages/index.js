@@ -22,11 +22,12 @@ export default class Index extends Component {
         to="/sports"
         icon={false}
         item>
-      <Dropdown.Menu>
-        <Dropdown.Item>Open</Dropdown.Item>
-        <Dropdown.Item>Save...</Dropdown.Item>
-        <Dropdown.Item>Edit Permissions</Dropdown.Item>
-      </Dropdown.Menu>
+        <Dropdown.Menu>
+          <Dropdown.Item>Sport Categories</Dropdown.Item>
+          <Dropdown.Item>Sport Sub Categories</Dropdown.Item>
+          <Dropdown.Item>Menu Titles</Dropdown.Item> 
+          <Dropdown.Item>Menu Content</Dropdown.Item> 
+        </Dropdown.Menu>
       </Dropdown>
 
       <Dropdown
@@ -36,9 +37,9 @@ export default class Index extends Component {
         icon={false}
         item>
         <Dropdown.Menu>
-          <Dropdown.Item>Open</Dropdown.Item>
-          <Dropdown.Item>Save...</Dropdown.Item>
-          <Dropdown.Item>Edit Permissions</Dropdown.Item>
+          <Dropdown.Item>Recipe Categories</Dropdown.Item>
+          <Dropdown.Item>Recipe Titles</Dropdown.Item>
+          <Dropdown.Item>Recipe Content</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
@@ -49,9 +50,8 @@ export default class Index extends Component {
         icon={false}
         item>
         <Dropdown.Menu>
-          <Dropdown.Item>Open</Dropdown.Item>
-          <Dropdown.Item>Save...</Dropdown.Item>
-          <Dropdown.Item>Edit Permissions</Dropdown.Item>
+          <Dropdown.Item>Advisors Categories</Dropdown.Item>
+          <Dropdown.Item>Advisors Content</Dropdown.Item>
         </Dropdown.Menu>
         </Dropdown>
     </Menu>
