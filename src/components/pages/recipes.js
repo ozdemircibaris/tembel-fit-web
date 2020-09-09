@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipesCategories, sendRecipes } from '../../actions/recipesActions';
-import { Container, Button, Form, Table, Label, Icon, Menu} from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { fetchRecipesCategories, recipesTitleChange, recipesImageUrlChange, sendRecipes } from '../../actions/recipesActions';
+import { Container, Button, Form, Table, Icon, Menu, Message } from 'semantic-ui-react'
 
 class Recipes extends Component {
   state = {
@@ -13,22 +12,43 @@ class Recipes extends Component {
     this.props.fetchRecipesCategories()
   }
 
-  onTitleChanged    = (e, { name, value }) => this.setState({ titleValue: value })
-  onImageUrlChanged = (e, { name, value }) => this.setState({ imageUrlValue: value })
-  onSendRecipes     = () => this.props.sendRecipes(this.state.titleValue, this.state.imageUrlValue)
+  onTitleChanged    = (e, { name, value }) => this.props.recipesTitleChange(value)
+  onImageUrlChanged = (e, { name, value }) => this.props.recipesImageUrlChange(value)
+  onSendRecipes     = () => this.props.sendRecipes(this.props.recipesTitleValue, this.props.recipesImageUrlValue)
 
   render() {
-    const { recipesCategoriesValue } = this.props;
+    const { recipesCategoriesValue, recipesSpinnerStatus, recipesWarningStatus, recipesTitleValue, recipesImageUrlValue, } = this.props;
     return (
       <Container>
-        <Form style={{ marginTop: 20, marginBottom: 20}} loading={false}>
+        {
+          recipesWarningStatus == "success" ?
+         <Message success icon style={{ marginTop: 20, marginBottom: 20 }}>
+          <Icon name='info' />
+          <Message.Content>
+            <Message.Header>Your user registration was successful</Message.Header>
+            You may now log-in with the username you have chosen
+          </Message.Content>
+        </Message>:null
+        }
+        {
+          recipesWarningStatus == "error" ?
+         <Message error icon style={{ marginTop: 20, marginBottom: 20 }}>
+          <Icon name='info' />
+          <Message.Content>
+            <Message.Header>Your user registration was successful</Message.Header>
+            You may now log-in with the username you have chosen
+          </Message.Content>
+        </Message>:null
+        }
+        <Form style={{ marginTop: 20, marginBottom: 20 }} loading={recipesSpinnerStatus}>
           <Form.Input
             onChange={this.onTitleChanged}
+            value={recipesTitleValue}
             label='Title'
-            name="title"
             placeholder='Kekler, omletler..' />
           <Form.Input
             onChange={this.onImageUrlChanged}
+            value={recipesImageUrlValue}
             label='Image'
             placeholder='Image url' />
           <Button onClick={this.onSendRecipes}>Ekle</Button>
@@ -86,9 +106,19 @@ class Recipes extends Component {
 }
 
 const mapStateToProps = state => {
-  const { recipesCategoriesValue } = state.RecipesReducer;
+  const {
+    recipesCategoriesValue,
+    recipesTitleValue,
+    recipesImageUrlValue,
+    recipesSpinnerStatus,
+    recipesWarningStatus
+  } = state.RecipesReducer;
   return {
-    recipesCategoriesValue
+    recipesCategoriesValue,
+    recipesTitleValue,
+    recipesImageUrlValue,
+    recipesSpinnerStatus,
+    recipesWarningStatus
   }
 }
 
@@ -96,6 +126,8 @@ export default connect(
   mapStateToProps,
   {
     fetchRecipesCategories,
-    sendRecipes
+    recipesTitleChange,
+    recipesImageUrlChange,
+    sendRecipes,
   }
 )(Recipes)
