@@ -13,7 +13,10 @@ export const fetchRecipesCategories = () => {
             method: "get",
             url: `${API_BASE}/recipe/categories`,
         }).then((result) => {
-            console.log("result", result.data)
+            dispatch({
+                type: FETCH_RECIPES_CATEGORIES,
+                payload: result.data.data
+            })
         }).catch((err) => {
             console.log("err", err)
         })
