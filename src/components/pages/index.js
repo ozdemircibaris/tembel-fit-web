@@ -25,8 +25,8 @@ export default class Index extends Component {
         <Dropdown.Menu>
           <Dropdown.Item>Sport Categories</Dropdown.Item>
           <Dropdown.Item>Sport Sub Categories</Dropdown.Item>
-          <Dropdown.Item>Menu Titles</Dropdown.Item> 
-          <Dropdown.Item>Menu Content</Dropdown.Item> 
+          <Dropdown.Item>Sub Categories Menu Titles</Dropdown.Item>
+          <Dropdown.Item>Sub Categories Menu Content</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
@@ -38,8 +38,8 @@ export default class Index extends Component {
         item>
         <Dropdown.Menu>
           <Dropdown.Item>Recipe Categories</Dropdown.Item>
-          <Dropdown.Item>Recipe Titles</Dropdown.Item>
-          <Dropdown.Item>Recipe Content</Dropdown.Item>
+          <Dropdown.Item>Recipe Detail Titles</Dropdown.Item>
+          <Dropdown.Item>Recipe Detail Content</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
