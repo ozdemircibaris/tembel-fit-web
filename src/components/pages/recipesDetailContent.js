@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipesCategories, recipesTitleChange, recipesImageUrlChange, sendRecipes } from '../../actions/recipesActions';
+import { fetchRecipesDetailContent, recipesTitleChange, recipesImageUrlChange, sendRecipes } from '../../actions/recipesActions';
 import { Container, Button, Form, Table, Icon, Menu, Message } from 'semantic-ui-react'
 
-class Recipes extends Component {
+class RecipesDetailContent extends Component {
   componentWillMount() {
-    this.props.fetchRecipesCategories()
+    this.props.fetchRecipesDetailContent()
   }
 
   onTitleChanged    = (e, { name, value }) => this.props.recipesTitleChange(value)
@@ -121,9 +121,9 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    fetchRecipesCategories,
+    fetchRecipesDetailContent,
     recipesTitleChange,
     recipesImageUrlChange,
     sendRecipes,
   }
-)(Recipes)
+)(RecipesDetailContent)

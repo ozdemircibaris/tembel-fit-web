@@ -4,6 +4,8 @@ import {
     RECIPES_IMAGE_URL_CHANGE,
     SEND_RECIPES_CLICK,
     SEND_RECIPES_SUCCESS,
+    FETCH_RECIPES_CAT_DETAIL,
+    FETCH_RECIPES_DETAIL_CONTENT,
 } from "../actions/recipesActions";
 
 const INITIAL_STATE = {
@@ -11,7 +13,8 @@ const INITIAL_STATE = {
     recipesTitleValue: "",
     recipesImageUrlValue: "",
     recipesSpinnerStatus: false,
-    recipesWarningStatus: ""
+    recipesWarningStatus: "",
+    recipesDetailTitlesValue: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -43,6 +46,16 @@ export default (state = INITIAL_STATE, action) => {
                 recipesWarningStatus: "success",
                 recipesTitleValue: "",
                 recipesImageUrlValue: ""
+            }
+        case FETCH_RECIPES_CAT_DETAIL:
+            return {
+                ...state,
+                recipesDetailTitlesValue: action.payload
+            }
+        case FETCH_RECIPES_DETAIL_CONTENT:
+            return {
+                ...state,
+                recipesDetailContentValue: action.payload
             }
         default:
             return state;

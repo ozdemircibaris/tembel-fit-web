@@ -37,9 +37,9 @@ export default class Index extends Component {
         icon={false}
         item>
         <Dropdown.Menu>
-          <Dropdown.Item>Recipe Categories</Dropdown.Item>
-          <Dropdown.Item>Recipe Detail Titles</Dropdown.Item>
-          <Dropdown.Item>Recipe Detail Content</Dropdown.Item>
+          <Dropdown.Item as={Link} to="/recipes">Recipe Categories</Dropdown.Item>
+          <Dropdown.Item as={Link} to="/recipes-detail-title">Recipe Detail Titles</Dropdown.Item>
+          <Dropdown.Item as={Link} to="/recipes-detail-content">Recipe Detail Content</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 

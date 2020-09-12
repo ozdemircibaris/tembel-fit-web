@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipesCategories, recipesTitleChange, recipesImageUrlChange, sendRecipes } from '../../actions/recipesActions';
+import { fetchRecipesCatDetail, recipesTitleChange, recipesImageUrlChange, sendRecipes } from '../../actions/recipesActions';
 import { Container, Button, Form, Table, Icon, Menu, Message } from 'semantic-ui-react'
 
-class Recipes extends Component {
+class RecipesDetailTitles extends Component {
   componentWillMount() {
-    this.props.fetchRecipesCategories()
+    this.props.fetchRecipesCatDetail()
   }
 
   onTitleChanged    = (e, { name, value }) => this.props.recipesTitleChange(value)
@@ -13,7 +13,7 @@ class Recipes extends Component {
   onSendRecipes     = () => this.props.sendRecipes(this.props.recipesTitleValue, this.props.recipesImageUrlValue)
 
   render() {
-    const { recipesCategoriesValue, recipesSpinnerStatus, recipesWarningStatus, recipesTitleValue, recipesImageUrlValue, } = this.props;
+    const { recipesDetailTitlesValue, recipesSpinnerStatus, recipesWarningStatus, recipesTitleValue, recipesImageUrlValue, } = this.props;
     return (
       <Container>
         {
@@ -61,7 +61,7 @@ class Recipes extends Component {
 
           <Table.Body>
           {
-            recipesCategoriesValue.map((item, index) => {
+            recipesDetailTitlesValue.map((item, index) => {
               return(
                 <Table.Row key={item.id}>
                   <Table.Cell collapsing> {item.id} </Table.Cell>
@@ -103,14 +103,14 @@ class Recipes extends Component {
 
 const mapStateToProps = state => {
   const {
-    recipesCategoriesValue,
+    recipesDetailTitlesValue,
     recipesTitleValue,
     recipesImageUrlValue,
     recipesSpinnerStatus,
     recipesWarningStatus
   } = state.RecipesReducer;
   return {
-    recipesCategoriesValue,
+    recipesDetailTitlesValue,
     recipesTitleValue,
     recipesImageUrlValue,
     recipesSpinnerStatus,
@@ -121,9 +121,9 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    fetchRecipesCategories,
+    fetchRecipesCatDetail,
     recipesTitleChange,
     recipesImageUrlChange,
     sendRecipes,
   }
-)(Recipes)
+)(RecipesDetailTitles)

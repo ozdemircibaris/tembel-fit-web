@@ -10,12 +10,16 @@ export const SEND_RECIPES_CLICK       = "send_recipes_click";
 export const SEND_RECIPES_SUCCESS     = "send_recipes_success";
 export const SEND_RECIPES_FAILED      = "send_recipes_failed";
 
+export const FETCH_RECIPES_CAT_DETAIL  = "fetch_recipes_cat_detail";
+export const FETCH_RECIPES_DETAIL_CONTENT = "fetch_recipes_detail_content";
+
 export const fetchRecipesCategories = () => {
     return dispatch => {
         axios({
             method: "get",
             url: `${API_BASE}/recipe/categories`,
         }).then((result) => {
+            console.log("result.data.data", result.data.data)
             dispatch({
                 type: FETCH_RECIPES_CATEGORIES,
                 payload: result.data.data
@@ -63,6 +67,36 @@ export const sendRecipes = (title, image) => {
             }
         }).catch((err) => {
             console.log("err", err.response)
+        })
+    }
+}
+
+export const fetchRecipesCatDetail = (id) => {
+    return dispatch => {
+        axios({
+            method: "get",
+            url: `${API_BASE}/recipes/${id}`
+        }).then((result) => {
+            console.log("result", result)
+            dispatch({
+                type: FETCH_RECIPES_CAT_DETAIL,
+                payload: result.data.data
+            })
+        })
+    }
+}
+
+export const fetchRecipesDetailContent = () => {
+    return dispatch => {
+        axios({
+            method: "get",
+            url: `${API_BASE}`
+        }).then((result) => {
+            console.log("result", result)
+            dispatch({
+                type: FETCH_RECIPES_DETAIL_CONTENT,
+                payload: result.data.data
+            })
         })
     }
 }

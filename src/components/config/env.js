@@ -1,1 +1,1 @@
-export const API_BASE = "http://suhacanuluer.tk:3000"
+export const API_BASE = "http://tembelfit.ozdemircibaris.xyz/api/v1"
