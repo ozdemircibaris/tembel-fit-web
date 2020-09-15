@@ -16,44 +16,26 @@ export default class Index extends Component {
         to="/">
         <span> Home </span>
       </Menu.Item>
-      <Dropdown
-        text="Sports"
+      <Menu.Item
         as={Link}
-        to="/sports"
-        icon={false}
-        item>
-        <Dropdown.Menu>
-          <Dropdown.Item>Sport Categories</Dropdown.Item>
-          <Dropdown.Item>Sport Sub Categories</Dropdown.Item>
-          <Dropdown.Item>Sub Categories Menu Titles</Dropdown.Item>
-          <Dropdown.Item>Sub Categories Menu Content</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-
-      <Dropdown
-        text="Recipes"
+        to="/sports">
+        <span> Sports </span>
+      </Menu.Item>
+      <Menu.Item
         as={Link}
-        to="/recipes"
-        icon={false}
-        item>
-        <Dropdown.Menu>
-          <Dropdown.Item as={Link} to="/recipes">Recipe Categories</Dropdown.Item>
-          <Dropdown.Item as={Link} to="/recipes-detail-title">Recipe Detail Titles</Dropdown.Item>
-          <Dropdown.Item as={Link} to="/recipes-detail-content">Recipe Detail Content</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-
-      <Dropdown
-        text="Advisors"
+        to="/diet">
+        <span> Diet </span>
+      </Menu.Item>
+      <Menu.Item
         as={Link}
-        to="/advisors"
-        icon={false}
-        item>
-        <Dropdown.Menu>
-          <Dropdown.Item>Advisors Categories</Dropdown.Item>
-          <Dropdown.Item>Advisors Content</Dropdown.Item>
-        </Dropdown.Menu>
-        </Dropdown>
+        to="/recipes">
+        <span> Recipes </span>
+      </Menu.Item>
+      <Menu.Item
+        as={Link}
+        to="/advisors">
+        <span> Advisors </span>
+      </Menu.Item>
     </Menu>
   </div>
     );
