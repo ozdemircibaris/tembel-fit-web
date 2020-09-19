@@ -12,7 +12,10 @@ import Advisors from './pages/advisors';
 import SportSubCategories from './pages/sportSubCategories';
 import SportSubCatTabTitle from './pages/sportSubCatTabTitle';
 import SportSubCatTabContent from './pages/sportSubCatTabContent';
-import Diet from './pages/diet';
+import Diet from './pages/diets';
+import DietSubCategories from './pages/dietSubCategories';
+import DietsValueRange from './pages/dietsValueRange';
+import DietsDietList from './pages/dietsDietList';
 
 export default class RouterComp extends Component {
   render() {
@@ -23,7 +26,10 @@ export default class RouterComp extends Component {
           <Route exact path="/sports/sub-cats" component={SportSubCategories} />
           <Route exact path="/sports/sub-cats/tab-title" component={SportSubCatTabTitle} />
           <Route exact path="/sports/sub-cats/tab-content" component={SportSubCatTabContent} />
-          <Route exact path="/diet" component={Diet} />
+          <Route exact path="/diets" component={Diet} />
+          <Route exact path="/diets/sub-cats" component={DietSubCategories} />
+          <Route exact path="/diets/sub-cats/diet-list" component={DietsDietList} />
+          <Route exact path="/diets/sub-cats/value-range" component={DietsValueRange} />
           <Route exact path="/recipes" component={Recipes} />
           <Route exact path="/recipes-detail-title" component={RecipesDetailTitles} />
           <Route exact path="/recipes-detail-content" component={recipesDetailContent} />

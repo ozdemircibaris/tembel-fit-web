@@ -69,7 +69,7 @@ class Sports extends Component {
                 <Table.Row key={item.id}>
                   <Table.Cell collapsing> {item.id} </Table.Cell>
                   <Table.Cell> {item.title == null ? "null":item.title} </Table.Cell>
-                  <Table.Cell><a target="_blank" href={`https://${item.image_url}`}> {item.image_url == null ? "null":item.image_url}</a> </Table.Cell>
+                  <Table.Cell><a target="_blank" href={`${item.image_url}`}> {item.image_url == null ? "null":item.image_url}</a> </Table.Cell>
                   <Table.Cell collapsing>
                     <Button inverted color="red" style={{ marginRight: 10 }}> Sil</Button>
                     <Button inverted color="olive" style={{ marginRight: 10 }}> Güncelle</Button>

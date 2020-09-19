@@ -23,7 +23,7 @@ export default class Index extends Component {
       </Menu.Item>
       <Menu.Item
         as={Link}
-        to="/diet">
+        to="/diets">
         <span> Diet </span>
       </Menu.Item>
       <Menu.Item
